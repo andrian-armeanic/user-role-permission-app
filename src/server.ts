@@ -1,14 +1,15 @@
-process.env['NODE_CONFIG_DIR'] = __dirname + '/configs';
-
 import 'dotenv/config';
+
 import App from '@/app';
-import AuthRoute from '@routes/auth.route';
-import IndexRoute from '@routes/index.route';
-import UsersRoute from '@routes/users.route';
-import validateEnv from '@utils/validateEnv';
+import AuthRoute from '@/rest/routes/auth.route';
+import PermissionRoute from "@/rest/routes/permission.route";
+import RoleRoute from "@/rest/routes/role.route";
+import UserRoute from '@/rest/routes/user.route';
 
-validateEnv();
-
-const app = new App([new IndexRoute(), new UsersRoute(), new AuthRoute()]);
-
-app.listen();
+const server = new App([
+  new AuthRoute(),
+  new PermissionRoute(),
+  new RoleRoute(),
+  new UserRoute()
+]);
+server.app.listen(console.log(`Server is running on port ${server.port}`));

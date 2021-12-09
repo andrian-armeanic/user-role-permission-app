@@ -104,7 +104,9 @@ dist
 .tern-port
 
 # IntelliJ
-.idea# Logs
+.idea
+
+# Logs
 logs
 *.log
 npm-debug.log*
