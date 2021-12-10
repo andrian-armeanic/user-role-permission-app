@@ -1,13 +1,7 @@
 import { Types } from "mongoose";
 
-export interface IPermissions {
+export interface IPermission {
+
   _id: Types.ObjectId | string;
   name: string;
-}
-
-
-export class PermissionDto {
-
-  public _id: Types.ObjectId | string;
-  public name: string;
 }

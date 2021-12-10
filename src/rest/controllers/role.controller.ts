@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { RoleDto } from "@dtos/roles.dto";
 import RoleService from "@/rest/services/role.service";
 import { IRole } from "@/types/role";
 
@@ -9,7 +8,7 @@ export default class RoleController {
 
   public getRoles = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const roles: IRole[] = await this.roleService.findAllRoles();
+      const roles: IRole[] = await this.roleService.findAll<IRole>();
       res.status(200).json({ roles });
     } catch (error) {
       next(error);
@@ -19,7 +18,7 @@ export default class RoleController {
   public getRoleById = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const roleId: string = req.params.roleId;
-      const role: IRole = await this.roleService.findRoleById(roleId);
+      const role: IRole = await this.roleService.findById<IRole>(roleId);
       res.status(200).json({ role });
     } catch (error) {
       next(error);
@@ -28,8 +27,8 @@ export default class RoleController {
 
   public createRole = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const roleData: RoleDto = req.body;
-      const newRole: IRole = await this.roleService.createRole(roleData);
+      const roleData: IRole = req.body;
+      const newRole: IRole = await this.roleService.create<IRole>(roleData);
       res.status(201).json({ newRole });
     } catch (error) {
       next(error);
@@ -39,8 +38,8 @@ export default class RoleController {
   public updateRole = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const roleId: string = req.params.id;
-      const roleData: RoleDto = req.body;
-      const updatedRole: IRole = await this.roleService.updateRole(roleId, roleData);
+      const roleData: IRole = req.body;
+      const updatedRole: IRole = await this.roleService.update<IRole>(roleId, roleData);
       res.status(200).json({ updatedRole });
     } catch (error) {
       next(error);
@@ -50,7 +49,7 @@ export default class RoleController {
   public deleteRole = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const roleId: string = req.params.id;
-      const deletedRole: IRole = await this.roleService.deleteRole(roleId);
+      const deletedRole: IRole = await this.roleService.delete<IRole>(roleId);
       res.status(200).json({ deletedRole });
     } catch (error) {
       next(error);

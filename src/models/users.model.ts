@@ -1,7 +1,8 @@
-import { Schema } from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
+import { IUser } from "@/types/users";
 
 // User schema
-export default new Schema({
+export default model<IUser & Document>('users', new Schema({
   email: {
     type: Schema.Types.String,
     required: true,
@@ -18,5 +19,4 @@ export default new Schema({
     required: true,
     ref: 'roles'
   }
-});
-
+}));

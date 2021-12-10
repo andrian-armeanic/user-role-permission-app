@@ -7,7 +7,7 @@ import hpp from 'hpp';
 import morgan from 'morgan';
 
 import connectToDatabase from "@/config/mongodb";
-import errorMiddleware from '@/tools/middlewares/error.middleware';
+import errorMiddleware from '@/middlewares/error.middleware';
 
 export default class App {
 
@@ -25,6 +25,7 @@ export default class App {
   }
 
   private initializeMiddlewares() {
+
     this.app.use(morgan("dev"));
     this.app.use(cors({ origin: true, credentials: true }));
     this.app.use(hpp());

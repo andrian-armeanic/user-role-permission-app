@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import PermissionService from "@/rest/services/permission.service";
-import { IPermissions } from "@/types/permission";
+import { IPermission } from "@/types/permission";
 
 export default class PermissionController {
 
@@ -8,7 +8,7 @@ export default class PermissionController {
 
   public getPermissions = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const permissions: IPermissions[] = await this.permissionService.findAll<IPermissions>();
+      const permissions: IPermission[] = await this.permissionService.findAll<IPermission>();
       res.status(200).json({ permissions });
     } catch (error) {
       next(error);
@@ -18,7 +18,7 @@ export default class PermissionController {
   public getPermissionById = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const permissionId: string = req.params.id;
-      const permission: IPermissions = await this.permissionService.findById<IPermissions>(permissionId);
+      const permission: IPermission = await this.permissionService.findById<IPermission>(permissionId);
       res.status(200).json({ permission });
     } catch (error) {
       next(error);
@@ -27,8 +27,8 @@ export default class PermissionController {
 
   public createPermission = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const permissionData: IPermissions = req.body;
-      const newPermission: IPermissions = await this.permissionService.create<IPermissions>(permissionData);
+      const permissionData: IPermission = req.body;
+      const newPermission: IPermission = await this.permissionService.create<IPermission>(permissionData);
       res.status(201).json({ newPermission });
     } catch (error) {
       next(error);
@@ -38,8 +38,8 @@ export default class PermissionController {
   public updatePermission = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const permissionId: string = req.params.id;
-      const permissionData: IPermissions = req.body;
-      const updatedPermission: IPermissions = await this.permissionService.update<IPermissions>(permissionId, permissionData);
+      const permissionData: IPermission = req.body;
+      const updatedPermission: IPermission = await this.permissionService.update<IPermission>(permissionId, permissionData);
       res.status(200).json({ updatedPermission });
     } catch (error) {
       next(error);
@@ -49,7 +49,7 @@ export default class PermissionController {
   public deletePermission = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const permissionId: string = req.params.id;
-      const deletedPermission: IPermissions = await this.permissionService.delete<IPermissions>(permissionId);
+      const deletedPermission: IPermission = await this.permissionService.delete<IPermission>(permissionId);
       res.status(200).json({ deletedPermission });
     } catch (error) {
       next(error);

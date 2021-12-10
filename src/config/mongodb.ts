@@ -1,6 +1,6 @@
 import { connect, set } from "mongoose";
 
-export default function connectToDatabase(env: string) {
+export default (env: string) => {
 
   if (env !== 'production') {
     set('debug', true);

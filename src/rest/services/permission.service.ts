@@ -1,13 +1,11 @@
-import { Document, model } from "mongoose";
-
 import AbstractService from "@/rest/services/abstract.service";
-import permissionSchema from "@/schemas/permissions.schema";
-import { IPermissions } from "@/types/permission";
+import roleModel from "@/models/permissions.model";
+import { IPermission } from "@/types/permission";
 
-export default class PermissionService extends AbstractService<IPermissions> {
+export default class PermissionService extends AbstractService<IPermission> {
 
   constructor() {
     super();
-    this.model = model<IPermissions & Document>('permissions', permissionSchema);
+    this.model = roleModel;
   }
 }

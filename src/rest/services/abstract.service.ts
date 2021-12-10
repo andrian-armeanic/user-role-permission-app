@@ -1,4 +1,4 @@
-import { HttpException } from "@/tools/error/HttpException";
+import { HttpException } from "@/error/HttpException";
 
 export default class AbstractService<T> {
 
@@ -21,7 +21,7 @@ export default class AbstractService<T> {
 
     if (!data) throw new HttpException(400, "Incorrect Data!");
     const found: T = await this.model.findOne({ name: data.name });
-    if (found) throw new HttpException(409, `You're email ${data.name} already exists`);
+    if (found) throw new HttpException(409, `Name ${data.name} already exists`);
     return await this.model.create({...data});
   }
 
@@ -29,8 +29,8 @@ export default class AbstractService<T> {
 
     if (!data) throw new HttpException(400, "Incorrect Data!");
     if (data.name) {
-      const findElement: T = await this.model.findOne({ name: data.name });
-      if (findElement) throw new HttpException(409, `You're email ${data.name} already exists`);
+      const found: T = await this.model.findOne({ name: data.name });
+      if (found) throw new HttpException(409, `Name ${data.name} already exists`);
     }
     const updateElementById: T = await this.model.findByIdAndUpdate(id, { data });
     if (!updateElementById) throw new HttpException(409, "Wrong id!");

@@ -1,18 +1,6 @@
-# compiled output
-.vscode
+# Packages
 /node_modules
 
-# code formatter
-.eslintrc
-.eslintignore
-.editorconfig
-.huskyrc
-.lintstagedrc.json
-.prettierrc
-
-# test
-jest.config.js
-
-# docker
+# Docker
 Dockerfile
 docker-compose.yml
