@@ -5,13 +5,13 @@ import { HttpException } from '@/error/HttpException';
 import AbstractService from "@/rest/services/abstract.service";
 import { IUser } from '@/types/users';
 
-export default class AuthService extends AbstractService<IUser> {
+export default class AuthService<T extends IUser> extends AbstractService<IUser> {
 
   constructor() {
     super();
   }
 
-  public async login(userData: IUser): Promise<{ cookie: string; findUser: IUser }> {
+  public async login<T>(userData: IUser): Promise<{ cookie: string; findUser: IUser }> {
 
     if (!userData) throw new HttpException(400, "You're not userData");
     const findUser: IUser = await this.model.findOne({ email: userData.email });
@@ -23,7 +23,7 @@ export default class AuthService extends AbstractService<IUser> {
     return { cookie, findUser };
   }
 
-  public async logout(userData: IUser): Promise<IUser> {
+  public async logout<T>(userData: IUser): Promise<IUser> {
 
     if (!userData) throw new HttpException(400, "You're not userData");
     const findUser: IUser = await this.model.findOne({ email: userData.email, password: userData.password });

@@ -4,13 +4,12 @@ import AuthController from '@/rest/controllers/auth.controller';
 
 export default class AuthRoute {
 
-  public path = '/auth/';
   public router = Router();
   public authController = new AuthController();
 
   constructor() {
 
-    this.router.post(`${this.path}login`, this.authController.logIn);
-    this.router.post(`${this.path}logout`, authMiddleware, this.authController.logOut);
+    this.router.post(`/auth/login`, this.authController.logIn);
+    this.router.post(`/auth/logout`, authMiddleware, this.authController.logOut);
   }
 }

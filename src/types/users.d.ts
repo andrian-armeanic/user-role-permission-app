@@ -9,11 +9,7 @@ export interface IUser {
   roleId:  Types.ObjectId | string;
 }
 
-export interface IUserExt {
+export interface IUserExt extends IUser {
 
-  _id: Types.ObjectId | string;
-  email: string;
-  password: string;
-  roleId: Types.ObjectId | string;
   role?: IRoleExt;
 }

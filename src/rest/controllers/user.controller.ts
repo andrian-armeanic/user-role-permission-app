@@ -4,7 +4,7 @@ import UserService from "@/rest/services/user.service";
 
 export default class UserController {
 
-  public userService = new UserService();
+  public userService = new UserService<IUser>();
 
   public getUsers = async (req: Request, res: Response, next: NextFunction) => {
 
@@ -30,7 +30,7 @@ export default class UserController {
 
     try {
       const userData: IUser = req.body;
-      const newUser: IUser = await this.userService.create(userData);
+      const newUser: IUser = await this.userService.create<IUser>(userData);
       res.status(201).json({ newUser });
     } catch (error) {
       next(error);
@@ -42,7 +42,7 @@ export default class UserController {
     try {
       const userId: string = req.params.id;
       const userData: IUser = req.body;
-      const updatedUser: IUser = await this.userService.update(userId, userData);
+      const updatedUser: IUser = await this.userService.update<IUser>(userId, userData);
       res.status(200).json({ updatedUser });
     } catch (error) {
       next(error);

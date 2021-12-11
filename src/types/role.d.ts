@@ -8,10 +8,7 @@ export interface IRole {
   permissionIds: Types.ObjectId[] | string[];
 }
 
-export interface IRoleExt {
+export interface IRoleExt extends IRole {
 
-  _id: Types.ObjectId | string;
-  name: string;
-  permissionIds: Types.ObjectId[] | string[];
   permissions?: IPermission[];
 }
