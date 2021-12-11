@@ -1,5 +1,5 @@
 import { Router } from "express";
-import PermissionController from "@/rest/controllers/permission.controller";
+import PermissionController from "../controllers/permission.controller";
 
 export default class PermissionRoute {
 

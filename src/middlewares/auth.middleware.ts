@@ -1,10 +1,10 @@
 import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
 
-import { HttpException } from '@/error/HttpException';
-import AbstractService from "@/rest/services/abstract.service";
-import { DataStoredInToken, RequestWithUser } from '@/types/auth';
-import { IUser } from "@/types/users";
+import { HttpException } from '../error/HttpException';
+import AbstractService from "../rest/services/abstract.service";
+import { DataStoredInToken, RequestWithUser } from '../types/auth';
+import { IUser } from "../types/users";
 
 export default async (req: RequestWithUser, res: Response, next: NextFunction) => {
 

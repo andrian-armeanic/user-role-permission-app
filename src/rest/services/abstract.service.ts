@@ -1,4 +1,4 @@
-import { HttpException } from "@/error/HttpException";
+import { HttpException } from "../../error/HttpException";
 
 export default class AbstractService<T> {
 

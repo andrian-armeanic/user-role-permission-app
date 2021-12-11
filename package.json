@@ -6,7 +6,7 @@
   "license": "ISC",
   "scripts": {
     "start": "npm run build && node dist/server.js",
-    "dev": "nodemon",
+    "dev": "nodemon --exec ts-node src/server.ts --watch",
     "build": "tsc -p tsconfig.json",
     "test": "jest --forceExit --detectOpenHandles"
   },
@@ -28,8 +28,7 @@
     "ignore": [
       "src/**/*.spec.ts",
       "src/**/*.test.ts"
-    ],
-    "exec": "ts-node -r tsconfig-paths/register --transpile-only src/server.ts"
+    ]
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -57,6 +56,7 @@
     "supertest": "^6.1.3",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.0.0",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.5"
   }
 }

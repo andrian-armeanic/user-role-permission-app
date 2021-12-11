@@ -1,5 +1,5 @@
 import { Document, model, Schema } from 'mongoose';
-import { IUser } from "@/types/users";
+import { IUser } from "../types/users";
 
 // User schema
 export default model<IUser & Document>('users', new Schema({

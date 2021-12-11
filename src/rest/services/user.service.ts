@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
 
-import AbstractService from "@/rest/services/abstract.service";
-import userModel from "@/models/users.model";
-import { HttpException } from '@/error/HttpException';
-import { IUser } from '@/types/users';
+import AbstractService from "./abstract.service";
+import userModel from "../../models/users.model";
+import { HttpException } from '../../error/HttpException';
+import { IUser } from '../../types/users';
 
 export default class UserService<T extends IUser> extends AbstractService<IUser> {
 

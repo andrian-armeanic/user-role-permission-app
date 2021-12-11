@@ -6,14 +6,13 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 
-import connectToDatabase from "@/config/mongodb";
-import errorMiddleware from '@/middlewares/error.middleware';
+import connectToDatabase from "./config/mongodb";
+import errorMiddleware from './middlewares/error.middleware';
 
 export default class App {
 
   public app: express.Application;
   public port: string | number;
-  public env: string;
 
   constructor(routes: any[]) {
 

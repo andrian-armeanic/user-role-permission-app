@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { HttpException } from '@/error/HttpException';
-import AbstractService from "@/rest/services/abstract.service";
-import { IUser } from '@/types/users';
+import { HttpException } from '../../error/HttpException';
+import AbstractService from "./abstract.service";
+import { IUser } from '../../types/users';
 
 export default class AuthService<T extends IUser> extends AbstractService<IUser> {
 

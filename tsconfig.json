@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es2017",
     "lib": ["es2017", "esnext.asynciterable"],
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -19,21 +19,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "importHelpers": true,
-    "baseUrl": "src",
-    "paths": {
-      "@/*": ["*"],
-      "@controllers/*": ["controllers/*"],
-      "@databases": ["databases"],
-      "@dtos/*": ["dtos/*"],
-      "@exceptions/*": ["exceptions/*"],
-      "@interfaces/*": ["interfaces/*"],
-      "@middlewares/*": ["middlewares/*"],
-      "@models/*": ["models/*"],
-      "@routes/*": ["routes/*"],
-      "@services/*": ["services/*"],
-      "@utils/*": ["utils/*"]
-    }
+    "baseUrl": "src"
   },
-  "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+  "include": ["src/**/*.ts", "src/**/*.json", "app.ts", "server.ts", ".env"],
   "exclude": ["node_modules"]
 }

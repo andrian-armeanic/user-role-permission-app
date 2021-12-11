@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import RoleService from "@/rest/services/role.service";
-import { IRole } from "@/types/role";
+import RoleService from "../services/role.service";
+import { IRole } from "../../types/role";
 
 export default class RoleController {
 

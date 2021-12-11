@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { IRoleExt } from "@/types/role";
+import { IRoleExt } from "./role";
 
 export interface IUser {
 

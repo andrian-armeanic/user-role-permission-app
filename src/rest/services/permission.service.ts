@@ -1,6 +1,6 @@
-import AbstractService from "@/rest/services/abstract.service";
-import roleModel from "@/models/permissions.model";
-import { IPermission } from "@/types/permission";
+import AbstractService from "./abstract.service";
+import roleModel from "../../models/permissions.model";
+import { IPermission } from "../../types/permission";
 
 export default class PermissionService<T extends IPermission> extends AbstractService<IPermission> {
 

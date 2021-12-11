@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import AuthService from '@/rest/services/auth.service';
-import { RequestWithUser } from "@/types/auth";
-import { IUser } from "@/types/users";
+import AuthService from '../services/auth.service';
+import { RequestWithUser } from "../../types/auth";
+import { IUser } from "../../types/users";
 
 export default class AuthController {
 

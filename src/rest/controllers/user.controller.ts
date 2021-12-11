@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { IUser } from '@/types/users';
-import UserService from "@/rest/services/user.service";
+import UserService from "../services/user.service";
+import { IUser } from '../../types/users';
 
 export default class UserController {
 

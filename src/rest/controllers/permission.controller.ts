@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import PermissionService from "@/rest/services/permission.service";
-import { IPermission } from "@/types/permission";
+import PermissionService from "../services/permission.service";
+import { IPermission } from "../../types/permission";
 
 export default class PermissionController {
 

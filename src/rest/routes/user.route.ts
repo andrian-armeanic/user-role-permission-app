@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import UserController from "@/rest/controllers/user.controller";
+import UserController from "../controllers/user.controller";
 
 export default class UserRoute {
 

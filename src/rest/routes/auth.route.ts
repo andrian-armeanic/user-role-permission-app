@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import authMiddleware from '@/middlewares/auth.middleware';
-import AuthController from '@/rest/controllers/auth.controller';
+import authMiddleware from '../../middlewares/auth.middleware';
+import AuthController from '../controllers/auth.controller';
 
 export default class AuthRoute {
 

@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { IPermission } from '@/types/permission';
+import { IPermission } from './permission';
 
 export interface IRole {
 
