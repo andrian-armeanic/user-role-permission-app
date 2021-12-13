@@ -11,8 +11,8 @@ export default class AuthController {
 
     try {
       const userData: IUser = req.body;
-      const { cookie, findUser } = await this.authService.login<IUser>(userData);
-      res.setHeader('Set-Cookie', [cookie])
+      const { userToken, findUser } = await this.authService.login<IUser>(userData);
+      res.setHeader('Set-Cookie', 'Authorization=' + userToken)
           .status(200)
           .json({ findUser });
     } catch (error) {
@@ -24,7 +24,7 @@ export default class AuthController {
 
     try {
       const logOutUserData: IUser = await this.authService.logout<IUser>(<IUser>req.user);
-      res.setHeader('Set-Cookie', ['Authorization=; Max-age=0'])
+      res.setHeader('Set-Cookie', 'Authorization=')
           .status(200)
           .json({ logOutUserData });
     } catch (error) {

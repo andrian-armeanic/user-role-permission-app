@@ -10,6 +10,6 @@ export default class AuthRoute {
   constructor() {
 
     this.router.post(`/auth/login`, this.authController.logIn);
-    this.router.post(`/auth/logout`, authMiddleware, this.authController.logOut);
+    this.router.post(`/auth/logout`, this.authController.logOut);
   }
 }
