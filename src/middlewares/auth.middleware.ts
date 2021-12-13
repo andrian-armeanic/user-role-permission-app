@@ -10,10 +10,10 @@ export default async (req: RequestWithUser, res: Response, next: NextFunction) =
 
   try {
     const Authorization: string = req.cookies['Authorization']
-      || req.header('Authorization').split('Bearer ')[1]
+      || (<string>req.header('Authorization')).split('Bearer ')[1]
       || null;
     if (Authorization) {
-      const userToken = await jwt.verify(Authorization, process.env.SECRET_KEY) as DataStoredInToken;
+      const userToken = await jwt.verify(Authorization, <string>process.env.SECRET_KEY) as DataStoredInToken;
       const abstractService = new AbstractService<IUser>();
       const findUser: IUser = await abstractService.findById(userToken._id);
       if (findUser) {

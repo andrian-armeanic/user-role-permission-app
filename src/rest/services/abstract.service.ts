@@ -2,7 +2,7 @@ import { HttpException } from "../../error/HttpException";
 
 export default class AbstractService<T> {
 
-  protected model;
+  public model;
 
   public async findAll<T>(): Promise<T[]> {
 

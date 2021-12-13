@@ -8,5 +8,5 @@ export interface DataStoredInToken {
 
 export interface RequestWithUser extends Request {
 
-  user: IUser;
+  user?: IUser;
 }

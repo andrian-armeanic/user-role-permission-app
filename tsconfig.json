@@ -1,26 +1,17 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "target": "es2017",
-    "lib": ["es2017", "esnext.asynciterable"],
-    "typeRoots": ["node_modules/"],
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
     "module": "commonjs",
-    "pretty": true,
-    "sourceMap": true,
-    "declaration": true,
-    "outDir": "./dist",
-    "allowJs": true,
-    "noEmit": false,
+    "declaration": false,
+    "sourceMap": false,
+    "outDir": "dist",
+    "strict": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "importHelpers": true,
-    "baseUrl": "src"
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false
   },
-  "include": ["src/**/*.ts", "src/**/*.json", "app.ts", "server.ts", ".env"],
-  "exclude": ["node_modules"]
+  "exclude": ["tests"]
 }

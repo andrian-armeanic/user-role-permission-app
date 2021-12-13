@@ -12,8 +12,9 @@ export default class AuthController {
     try {
       const userData: IUser = req.body;
       const { cookie, findUser } = await this.authService.login<IUser>(userData);
-      res.setHeader('Set-Cookie', [cookie]);
-      res.status(200).json({ findUser });
+      res.setHeader('Set-Cookie', [cookie])
+          .status(200)
+          .json({ findUser });
     } catch (error) {
       next(error);
     }
@@ -22,9 +23,10 @@ export default class AuthController {
   public logOut = async (req: RequestWithUser, res: Response, next: NextFunction) => {
 
     try {
-      const logOutUserData: IUser = await this.authService.logout<IUser>(req.user);
-      res.setHeader('Set-Cookie', ['Authorization=; Max-age=0']);
-      res.status(200).json({ logOutUserData });
+      const logOutUserData: IUser = await this.authService.logout<IUser>(<IUser>req.user);
+      res.setHeader('Set-Cookie', ['Authorization=; Max-age=0'])
+          .status(200)
+          .json({ logOutUserData });
     } catch (error) {
       next(error);
     }
