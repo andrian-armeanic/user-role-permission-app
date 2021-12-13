@@ -18,7 +18,6 @@ export default class App {
 
     this.app = express();
     this.port = process.env.PORT || 3000;
-    this.app.set('port', this.port);
     connectToDatabase(process.env.NODE_ENV || 'development');
     this.initializeMiddlewares();
     routes.forEach(route => this.app.use('/', route.router))

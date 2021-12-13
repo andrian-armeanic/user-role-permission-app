@@ -12,4 +12,4 @@ const server = new App([
   new RoleRoute(),
   new UserRoute()
 ]);
-server.app.listen(console.log(`Server is running on port ${server.port}`));
+server.app.listen(server.port, () => console.log(`Server is running on port ${server.port}`));

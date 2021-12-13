@@ -18,7 +18,7 @@ export default class UserService<T extends IUser> extends AbstractService<IUser>
     if (!data) throw new HttpException(400, "You're not userData");
     const findUser: T = await this.model.findOne({ email: data.email });
     if (findUser) throw new HttpException(409, `You're email ${data.email} already exists`);
-    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const hashedPassword = await bcrypt.hashSync(data.password, bcrypt.genSaltSync());
     return await this.model.create({...data, password: hashedPassword});
   }
 
