@@ -1,10 +1,10 @@
 import 'dotenv/config';
 
 import App from './app';
-import AuthRoute from './rest/routes/auth.route';
-import PermissionRoute from "./rest/routes/permission.route";
-import RoleRoute from "./rest/routes/role.route";
-import UserRoute from './rest/routes/user.route';
+import AuthRoute from './routes/auth.route';
+import PermissionRoute from "./routes/permission.route";
+import RoleRoute from "./routes/role.route";
+import UserRoute from './routes/user.route';
 
 const server = new App([
   new AuthRoute(),

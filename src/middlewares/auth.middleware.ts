@@ -1,8 +1,9 @@
 import { NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
+import StatusCodes from "../types/statusCode";
 
 import { HttpException } from '../error/HttpException';
-import AbstractService from "../rest/services/abstract.service";
+import AbstractService from "../services/abstract.service";
 import { DataStoredInToken, RequestWithUser } from '../types/auth';
 import { IUser } from "../types/users";
 
@@ -20,12 +21,12 @@ export default async (req: RequestWithUser, res: Response, next: NextFunction) =
         req.user = findUser;
         next();
       } else {
-        next(new HttpException(401, 'Wrong authentication token'));
+        next(new HttpException(StatusCodes.UNAUTHORIZED, 'Wrong authentication token'));
       }
     } else {
-      next(new HttpException(404, 'Authentication token missing'));
+      next(new HttpException(StatusCodes.NOT_FOUND, 'Authentication token missing'));
     }
   } catch (error) {
-    next(new HttpException(401, 'Wrong authentication token'));
+    next(new HttpException(StatusCodes.UNAUTHORIZED, 'Wrong authentication token'));
   }
 };

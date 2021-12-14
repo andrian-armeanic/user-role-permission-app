@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { IPermission } from './permission';
+import {PermissionDto} from './permission';
 
 export interface IRole {
 
@@ -8,7 +8,7 @@ export interface IRole {
   permissionIds: Types.ObjectId[] | string[];
 }
 
-export interface IRoleExt extends IRole {
+export interface RoleDto extends IRole {
 
-  permissions?: IPermission[];
+  permissions?: PermissionDto[];
 }

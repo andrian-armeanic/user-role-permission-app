@@ -1,16 +1,18 @@
 import { NextFunction, Request, Response } from 'express';
 import UserService from "../services/user.service";
-import { IUser } from '../../types/users';
+import {IUser, UserDto} from '../types/users';
+import StatusCodes from "../types/statusCode";
 
 export default class UserController {
 
-  public userService = new UserService<IUser>();
+  public userService = new UserService();
 
   public getUsers = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
-      const users: IUser[] = await this.userService.findAll<IUser>();
-      res.status(200).json({ users });
+      const users: UserDto[] = await this.userService.findAll<IUser>();
+      res.status(StatusCodes.OK)
+          .json(users);
     } catch (error) {
       next(error);
     }
@@ -19,8 +21,9 @@ export default class UserController {
   public getUserById = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
-      const user: IUser = await this.userService.findById<IUser>(req.params.id);
-      res.status(200).json({ user });
+      const user: UserDto = await this.userService.findById<IUser>(req.params.id);
+      res.status(StatusCodes.OK)
+          .json(user);
     } catch (error) {
       next(error);
     }
@@ -30,8 +33,9 @@ export default class UserController {
 
     try {
       const userData: IUser = req.body;
-      const newUser: IUser = await this.userService.create<IUser>(userData);
-      res.status(201).json({ newUser });
+      const newUser: UserDto = await this.userService.create<IUser>(userData);
+      res.status(StatusCodes.CREATED)
+          .json(newUser);
     } catch (error) {
       next(error);
     }
@@ -42,8 +46,9 @@ export default class UserController {
     try {
       const userId: string = req.params.id;
       const userData: IUser = req.body;
-      const updatedUser: IUser = await this.userService.update<IUser>(userId, userData);
-      res.status(200).json({ updatedUser });
+      const updatedUser: UserDto = await this.userService.update<IUser>(userId, userData);
+      res.status(StatusCodes.OK)
+          .json(updatedUser);
     } catch (error) {
       next(error);
     }
@@ -53,8 +58,9 @@ export default class UserController {
 
     try {
       const userId: string = req.params.id;
-      const deletedUser: IUser = await this.userService.delete<IUser>(userId);
-      res.status(200).json({ deletedUser });
+      const deletedUser: UserDto = await this.userService.delete<IUser>(userId);
+      res.status(StatusCodes.OK)
+          .json(deletedUser);
     } catch (error) {
       next(error);
     }

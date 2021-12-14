@@ -2,7 +2,7 @@ import { Document, model, Schema } from 'mongoose';
 import { IUser } from "../types/users";
 
 // User schema
-export default model<IUser & Document>('users', new Schema({
+const userSchema = new Schema({
   email: {
     type: Schema.Types.String,
     required: true,
@@ -19,4 +19,7 @@ export default model<IUser & Document>('users', new Schema({
     required: true,
     ref: 'roles'
   }
-}));
+});
+const userModel = model<IUser & Document>('users', userSchema);
+
+export default userModel;

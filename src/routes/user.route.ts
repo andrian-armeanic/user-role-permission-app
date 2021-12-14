@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import UserController from "../controllers/user.controller";
+import authMiddleware from '../middlewares/auth.middleware';
 
 export default class UserRoute {
 
@@ -11,7 +12,7 @@ export default class UserRoute {
     this.router.get(`/users/`, this.userController.getUsers);
     this.router.get(`/users/:id`, this.userController.getUserById);
     this.router.post(`/users/`, this.userController.createUser);
-    this.router.put(`/users/:id`, this.userController.updateUser);
-    this.router.delete(`/users/:id`, this.userController.deleteUser);
+    this.router.put(`/users/:id`, authMiddleware, this.userController.updateUser);
+    this.router.delete(`/users/:id`, authMiddleware, this.userController.deleteUser);
   }
 }

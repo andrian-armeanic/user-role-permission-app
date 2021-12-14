@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import { IRoleExt } from "./role";
+import {RoleDto} from "./role";
 
 export interface IUser {
 
@@ -9,7 +9,7 @@ export interface IUser {
   roleId:  Types.ObjectId | string;
 }
 
-export interface IUserExt extends IUser {
+export interface UserDto extends IUser {
 
-  role?: IRoleExt;
+  role?: RoleDto;
 }

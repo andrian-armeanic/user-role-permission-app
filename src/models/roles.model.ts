@@ -2,7 +2,7 @@ import { Document, model, Schema } from 'mongoose';
 import { IRole } from "../types/role";
 
 // Role schema
-export default model<IRole & Document>('roles', new Schema({
+const roleSchema = new Schema({
   name: {
     type: Schema.Types.String,
     required: true,
@@ -13,4 +13,7 @@ export default model<IRole & Document>('roles', new Schema({
     required: true,
     ref: 'permissions'
   }],
-}));
+});
+const roleModel = model<IRole & Document>('roles', roleSchema);
+
+export default roleModel;
