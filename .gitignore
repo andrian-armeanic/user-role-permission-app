@@ -4,7 +4,7 @@ node_modules/
 package-lock.json
 
 # dotenv environment variables file
-.env
+# .env
 
 # Build output
 dist

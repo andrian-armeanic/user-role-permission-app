@@ -8,10 +8,10 @@ export default class PermissionRoute {
 
   constructor() {
 
-    this.router.get(`/permissions/`, this.permissionController.getPermissions);
-    this.router.get(`/permissions/:id`, this.permissionController.getPermissionById);
-    this.router.post(`/permissions/`, this.permissionController.createPermission);
-    this.router.put(`/permissions/:id`, this.permissionController.updatePermission);
-    this.router.delete(`/permissions/:id`, this.permissionController.deletePermission);
+    this.router.get("/permissions/", this.permissionController.getPermissions);
+    this.router.get("/permissions/:id", this.permissionController.getPermissionById);
+    this.router.post("/permissions/", this.permissionController.createPermission);
+    this.router.put("/permissions/:id", this.permissionController.updatePermission);
+    this.router.delete("/permissions/:id", this.permissionController.deletePermission);
   }
 }

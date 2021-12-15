@@ -7,5 +7,6 @@
   "ignore": [
     "src/**/*.spec.ts",
     "src/**/*.test.ts"
-  ]
+  ],
+  "exec": "ts-node src/server.ts --watch"
 }

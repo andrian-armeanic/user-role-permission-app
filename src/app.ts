@@ -7,7 +7,7 @@ import hpp from 'hpp';
 import morgan from 'morgan';
 
 import errorMiddleware from './middlewares/error.middleware';
-import { Route } from "./types/routes";
+import { Route } from "./types/route";
 import {connect, set} from "mongoose";
 
 export default class App {

@@ -9,10 +9,10 @@ export default class UserRoute {
 
   constructor() {
 
-    this.router.get(`/users/`, this.userController.getUsers);
-    this.router.get(`/users/:id`, this.userController.getUserById);
-    this.router.post(`/users/`, this.userController.createUser);
-    this.router.put(`/users/:id`, authMiddleware, this.userController.updateUser);
-    this.router.delete(`/users/:id`, authMiddleware, this.userController.deleteUser);
+    this.router.get("/users/", this.userController.getUsers);
+    this.router.get("/users/:id", this.userController.getUserById);
+    this.router.post("/users/", this.userController.createUser);
+    this.router.put("/users/:id", authMiddleware, this.userController.updateUser);
+    this.router.delete("/users/:id", authMiddleware, this.userController.deleteUser);
   }
 }

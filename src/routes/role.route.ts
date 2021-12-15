@@ -8,10 +8,10 @@ export default class RoleRoute {
 
   constructor() {
 
-    this.router.get(`/roles/`, this.roleController.getRoles);
-    this.router.get(`/roles/:id`, this.roleController.getRoleById);
-    this.router.post(`/roles/`, this.roleController.createRole);
-    this.router.put(`/roles/:id`, this.roleController.updateRole);
-    this.router.delete(`/roles/:id`, this.roleController.deleteRole);
+    this.router.get("/roles/", this.roleController.getRoles);
+    this.router.get("/roles/:id", this.roleController.getRoleById);
+    this.router.post("/roles/", this.roleController.createRole);
+    this.router.put("/roles/:id", this.roleController.updateRole);
+    this.router.delete("/roles/:id", this.roleController.deleteRole);
   }
 }

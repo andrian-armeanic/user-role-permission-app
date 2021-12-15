@@ -20,6 +20,5 @@ const userSchema = new Schema({
     ref: 'roles'
   }
 });
-const userModel = model<IUser & Document>('users', userSchema);
 
-export default userModel;
+export default model<IUser & Document>('users', userSchema);

@@ -9,6 +9,5 @@ const permissionSchema = new Schema({
     unique: true,
   },
 });
-const permissionModel: Model<IPermission & Document> = model<IPermission & Document>('permissions', permissionSchema);
 
-export default permissionModel;
+export default model<IPermission & Document>('permissions', permissionSchema);

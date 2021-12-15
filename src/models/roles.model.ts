@@ -14,6 +14,5 @@ const roleSchema = new Schema({
     ref: 'permissions'
   }],
 });
-const roleModel = model<IRole & Document>('roles', roleSchema);
 
-export default roleModel;
+export default model<IRole & Document>('roles', roleSchema);

@@ -5,7 +5,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts --watch",
+    "dev": "nodemon",
     "build": "tsc -p tsconfig.json",
     "test": "jest --forceExit --detectOpenHandles",
     "start": "npm run build && node dist/server.js"
