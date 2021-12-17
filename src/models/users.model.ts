@@ -1,4 +1,5 @@
 import { Document, model, Schema } from 'mongoose';
+
 import { IUser } from "../types/users";
 
 // User schema

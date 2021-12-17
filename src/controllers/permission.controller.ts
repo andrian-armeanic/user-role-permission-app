@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+
 import PermissionService from "../services/permission.service";
-import {IPermission, PermissionDto} from "../types/permission";
-import {CREATED, OK} from "../types/status";
+import { CREATED, OK } from "../types/status";
+import { IPermission, PermissionDto } from "../types/permission";
 
 export default class PermissionController {
 

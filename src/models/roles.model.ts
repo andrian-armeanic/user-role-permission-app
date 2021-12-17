@@ -1,4 +1,5 @@
 import { Document, model, Schema } from 'mongoose';
+
 import { IRole } from "../types/role";
 
 // Role schema

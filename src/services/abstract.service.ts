@@ -1,5 +1,5 @@
 import { HttpException } from "../error/HttpException";
-import {BAD_REQUEST, CONFLICT, NOT_FOUND} from "../types/status";
+import { BAD_REQUEST, CONFLICT, NOT_FOUND } from "../types/status";
 
 export default class AbstractService<T> {
 

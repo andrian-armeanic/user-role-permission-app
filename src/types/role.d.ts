@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import {PermissionDto} from './permission';
+import { PermissionDto } from './permission';
 
 export interface IRole {
 

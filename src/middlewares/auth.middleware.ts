@@ -4,8 +4,8 @@ import jwt from 'jsonwebtoken';
 import { HttpException } from '../error/HttpException';
 import AbstractService from "../services/abstract.service";
 import { RequestWithUser } from '../types/auth';
-import { IUser } from "../types/users";
 import { NOT_FOUND, UNAUTHORIZED_ACCESS } from "../types/status";
+import { IUser } from "../types/users";
 
 export default async (req: RequestWithUser, res: Response, next: NextFunction) => {
 

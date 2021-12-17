@@ -1,8 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
+
 import AuthService from '../services/auth.service';
 import { RequestWithUser } from "../types/auth";
-import { IUser, UserDto } from "../types/users";
 import { OK } from "../types/status";
+import { IUser, UserDto } from "../types/users";
 
 export default class AuthController {
 

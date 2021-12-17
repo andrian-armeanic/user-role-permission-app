@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import {RoleDto} from "./role";
+import { RoleDto } from "./role";
 
 export interface IUser {
 

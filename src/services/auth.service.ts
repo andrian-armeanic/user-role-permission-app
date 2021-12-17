@@ -4,8 +4,8 @@ import jwt from 'jsonwebtoken';
 import AbstractService from "./abstract.service";
 import { HttpException } from '../error/HttpException';
 import userModel from "../models/users.model";
-import {IUser, UserDto} from '../types/users';
-import {BAD_REQUEST, CONFLICT} from "../types/status";
+import { BAD_REQUEST, CONFLICT } from "../types/status";
+import { IUser, UserDto } from '../types/users';
 
 export default class AuthService extends AbstractService<IUser> {
 

@@ -4,27 +4,28 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import hpp from 'hpp';
+import { connect, set } from "mongoose";
 import morgan from 'morgan';
 
 import errorMiddleware from './middlewares/error.middleware';
-import { Route } from "./types/route";
-import {connect, set} from "mongoose";
+import AuthRoute from "./routes/auth.route";
+import PermissionRoute from "./routes/permission.route";
+import RoleRoute from "./routes/role.route";
+import UserRoute from "./routes/user.route";
 
 export default class App {
 
   public app: express.Application;
-  public port: string | number;
 
-  constructor(routes: Route[]) {
+  constructor() {
 
     this.app = express();
-    this.port = process.env.PORT || 3000;
     this.connectToDatabase(process.env.NODE_ENV || 'development');
-    this.initializeMiddlewares();
-    routes.forEach(route => this.app.use('/', route.router))
+    this.initMiddlewares();
+    this.initRoutes();
   }
 
-  private initializeMiddlewares() {
+  private initMiddlewares() {
 
     if (process.env.NODE_ENV === 'development') {
       this.app.use(morgan("dev"));
@@ -47,5 +48,12 @@ export default class App {
     connect(<string>process.env.MONGO_URI)
         .then(() => console.log('Database connection established!'))
         .catch((err) => console.log('Database connection issue: ' + err.message));
+  }
+
+  private initRoutes() {
+    this.app.use('/', new AuthRoute().router);
+    this.app.use('/', new PermissionRoute().router);
+    this.app.use('/', new RoleRoute().router);
+    this.app.use('/', new UserRoute().router);
   }
 }

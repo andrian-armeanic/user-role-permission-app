@@ -1,4 +1,5 @@
-import {Document, Model, model, Schema} from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
+
 import { IPermission } from "../types/permission";
 
 // Permission schema

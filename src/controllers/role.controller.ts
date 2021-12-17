@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from "express";
+
 import RoleService from "../services/role.service";
-import {IRole, RoleDto} from "../types/role";
-import {CREATED, OK} from "../types/status";
+import { CREATED, OK } from "../types/status";
+import { IRole, RoleDto } from "../types/role";
 
 export default class RoleController {
 

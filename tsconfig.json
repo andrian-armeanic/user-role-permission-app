@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
+    "lib": ["es5"],
     "module": "commonjs",
     "declaration": false,
     "sourceMap": false,
@@ -11,7 +12,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true
   },
   "exclude": ["tests"]
 }

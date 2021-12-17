@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
+
 import UserService from "../services/user.service";
-import {IUser, UserDto} from '../types/users';
-import {CREATED, OK} from "../types/status";
+import { CREATED, OK } from "../types/status";
+import { IUser, UserDto } from '../types/users';
 
 export default class UserController {
 

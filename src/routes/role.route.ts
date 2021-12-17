@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import RoleController from "../controllers/role.controller";
 
 export default class RoleRoute {
