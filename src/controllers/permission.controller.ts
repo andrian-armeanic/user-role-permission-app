@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
 import PermissionService from "../services/permission.service";
-import { CREATED, OK } from "../types/status";
 import { IPermission, PermissionDto } from "../types/permission";
 
 export default class PermissionController {
@@ -12,7 +11,7 @@ export default class PermissionController {
 
     try {
       const permissions: PermissionDto[] = await this.permissionService.findAll();
-      res.status(OK)
+      res.status(200)
           .json(permissions);
     } catch (error) {
       next(error);
@@ -24,7 +23,7 @@ export default class PermissionController {
     try {
       const permissionId: string = req.params.id;
       const permission: PermissionDto = await this.permissionService.findById(permissionId);
-      res.status(OK)
+      res.status(200)
           .json(permission);
     } catch (error) {
       next(error);
@@ -36,7 +35,7 @@ export default class PermissionController {
     try {
       const permissionData: IPermission = req.body;
       const newPermission: PermissionDto = await this.permissionService.create(permissionData);
-      res.status(CREATED)
+      res.status(201)
           .json(newPermission);
     } catch (error) {
       next(error);
@@ -49,7 +48,7 @@ export default class PermissionController {
       const permissionId: string = req.params.id;
       const permissionData: IPermission = req.body;
       const updatedPermission: PermissionDto = await this.permissionService.update(permissionId, permissionData);
-      res.status(OK)
+      res.status(200)
           .json(updatedPermission);
     } catch (error) {
       next(error);
@@ -61,7 +60,7 @@ export default class PermissionController {
     try {
       const permissionId: string = req.params.id;
       const deletedPermission: PermissionDto = await this.permissionService.delete(permissionId);
-      res.status(OK)
+      res.status(200)
           .json(deletedPermission);
     } catch (error) {
       next(error);

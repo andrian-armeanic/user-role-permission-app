@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 
 import AuthService from '../services/auth.service';
 import { RequestWithUser } from "../types/auth";
-import { OK } from "../types/status";
 import { IUser, UserDto } from "../types/users";
 
 export default class AuthController {
@@ -15,7 +14,7 @@ export default class AuthController {
       const userData: IUser = req.body;
       const { userToken, findUser } = await this.authService.login(userData);
       res.setHeader('Set-Cookie', 'Authorization=' + userToken)
-          .status(OK)
+          .status(200)
           .json(findUser as UserDto);
     } catch (error) {
       next(error);
@@ -27,7 +26,7 @@ export default class AuthController {
     try {
       const logOutUserData: UserDto = await this.authService.logout(req.user);
       res.setHeader('Set-Cookie', 'Authorization=')
-          .status(OK)
+          .status(200)
           .json(logOutUserData);
     } catch (error) {
       next(error);

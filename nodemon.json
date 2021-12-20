@@ -1,8 +1,5 @@
 {
-  "watch": [
-    "src",
-    ".env"
-  ],
+  "watch": ["user-role-permission-app/*"],
   "ext": "js,ts,json",
   "ignore": [
     "src/**/*.spec.ts",

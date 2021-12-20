@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 
 import UserService from "../services/user.service";
-import { CREATED, OK } from "../types/status";
 import { IUser, UserDto } from '../types/users';
 
 export default class UserController {
@@ -12,7 +11,7 @@ export default class UserController {
 
     try {
       const users: UserDto[] = await this.userService.findAll();
-      res.status(OK)
+      res.status(200)
           .json(users);
     } catch (error) {
       next(error);
@@ -23,7 +22,7 @@ export default class UserController {
 
     try {
       const user: UserDto = await this.userService.findById(req.params.id);
-      res.status(OK)
+      res.status(200)
           .json(user);
     } catch (error) {
       next(error);
@@ -35,7 +34,7 @@ export default class UserController {
     try {
       const userData: IUser = req.body;
       const newUser: UserDto = await this.userService.create(userData);
-      res.status(CREATED)
+      res.status(201)
           .json(newUser);
     } catch (error) {
       next(error);
@@ -48,7 +47,7 @@ export default class UserController {
       const userId: string = req.params.id;
       const userData: IUser = req.body;
       const updatedUser: UserDto = await this.userService.update(userId, userData);
-      res.status(OK)
+      res.status(200)
           .json(updatedUser);
     } catch (error) {
       next(error);
@@ -60,7 +59,7 @@ export default class UserController {
     try {
       const userId: string = req.params.id;
       const deletedUser: UserDto = await this.userService.delete(userId);
-      res.status(OK)
+      res.status(200)
           .json(deletedUser);
     } catch (error) {
       next(error);
